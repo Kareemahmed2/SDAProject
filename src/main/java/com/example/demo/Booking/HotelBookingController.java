@@ -1,4 +1,4 @@
-package com.example.demo.HotelBooking;
+package com.example.demo.Booking;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 

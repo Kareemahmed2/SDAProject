@@ -1,4 +1,4 @@
-package com.example.demo.HotelBooking;
+package com.example.demo.Booking;
 
 public class HotelProviderAdapter {
 }
