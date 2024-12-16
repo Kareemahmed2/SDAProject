@@ -3,6 +3,7 @@ package com.example.demo.Booking;
 import javax.persistence.*;
 import java.util.ArrayList;
 
+
 public class Hotel {
 
     @Id

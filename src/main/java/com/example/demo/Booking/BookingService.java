@@ -2,11 +2,13 @@ package com.example.demo.Booking;
 
 import org.springframework.stereotype.Service;
 
-@Service
-public abstract class BookingService {
-    Behaviour behaviour;
+import java.util.ArrayList;
 
-    public abstract void book();
-    public abstract void cancel();
-    public abstract void Search();
+@Service
+public class BookingService {
+    private ArrayList<BookingCommand> history= new ArrayList<BookingCommand>();
+
+    public void execute(BookingCommand bookingCommand) {
+        bookingCommand.execute();
+    }
 }

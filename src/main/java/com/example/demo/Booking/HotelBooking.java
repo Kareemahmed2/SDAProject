@@ -1,11 +1,10 @@
 package com.example.demo.Booking;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-@Entity
+
 public class HotelBooking {
 
     @Id
@@ -13,6 +12,8 @@ public class HotelBooking {
     @GeneratedValue(generator = "hotelbooking_sequence", strategy = javax.persistence.GenerationType.SEQUENCE)
     private Long id;
     private String name;
+
+
     private Hotel hotel;
 
     public void setId(Long id) {
