@@ -10,6 +10,7 @@ public class BookCommand extends BookingCommand{
 
     @Override
     public ResponseEntity<String> execute() {
+
         behaviour.book();
         return null;
     }
