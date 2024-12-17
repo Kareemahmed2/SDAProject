@@ -1,14 +1,16 @@
 package com.example.demo.UserManagement;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping("/userManagement")
+@RestController
+@RequestMapping("/user")
+
 public class UserManagementController {
     private final UserService userService;
     private final JWTUtil jwtUtil;
@@ -18,16 +20,16 @@ public class UserManagementController {
         this.userService = userService;
         this.jwtUtil = jwtUtil;
     }
-
-    @GetMapping("/register")
-    public void register(@RequestBody User user) {
+    @PostMapping("/register")
+    public ResponseEntity<String> register(@RequestBody User user) {
         userService.addUser(user);
+        return ResponseEntity.ok("User registered successfully.");
     }
     @PostMapping("/login")
-    public String login(@RequestBody AuthRequest authRequest) {
-        if(UserService.ValidateUser(authRequest.getUsername(), authRequest.getPassword())) {
-            return jwtUtil.generateToken(authRequest.getUsername());
+    public ResponseEntity<String> login(@RequestBody AuthRequest authRequest) {
+        if (UserService.ValidateUser(authRequest.getUsername(), authRequest.getPassword())) {
+            return ResponseEntity.ok(jwtUtil.generateToken(authRequest.getUsername()));
         }
-        throw new RuntimeException("Invalid credentials");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials.");
     }
 }
