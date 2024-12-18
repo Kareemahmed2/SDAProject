@@ -22,6 +22,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.age= age;
     }
 
     public void setId(Long id) {
@@ -54,5 +55,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
     }
 }
