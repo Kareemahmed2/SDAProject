@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public class UserService {
     private static final ArrayList<User> users = new ArrayList<>();
+    private static final ArrayList<AuthRequest> authRequests = new ArrayList<>();
     private static UserService userService;
 
     public UserService getUserService() {
@@ -21,6 +22,9 @@ public class UserService {
         users.add(new User("user1", "password1", "email1"));
         users.add(new User("user2", "password2", "email2"));
         users.add(new User("user3", "password3", "email3"));
+        authRequests.add(new AuthRequest("user1", "password1"));
+        authRequests.add(new AuthRequest("user2", "password2"));
+        authRequests.add(new AuthRequest("user3", "password3"));
     }
     public void addUser(User user) {
         users.add(user);
