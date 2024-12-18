@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 
-public class HotelBooking {
+public class HotelBooking extends Booking {
 
     @Id
     @SequenceGenerator(name = "hotelbooking_sequence", sequenceName = "hotelbooking_sequence", allocationSize = 1)

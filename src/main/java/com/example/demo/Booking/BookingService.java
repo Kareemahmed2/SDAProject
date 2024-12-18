@@ -5,10 +5,22 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class BookingService {
-    private ArrayList<BookingCommand> history= new ArrayList<BookingCommand>();
+public abstract class BookingService {
+    ArrayList<Hotel> hotels = new ArrayList<Hotel>();
+    ArrayList<Event> events = new ArrayList<Event>();
+    ArrayList<Booking> bookings = new ArrayList<Booking>();
 
-    public void execute(BookingCommand bookingCommand) {
-        bookingCommand.execute();
+    protected Behaviour behaviour;
+
+    public void setBehaviour(Behaviour behaviour) {
+        this.behaviour = behaviour;
+    }
+
+    public abstract Booking book() ;
+    public ArrayList<Entities> Search() {
+        return this.behaviour.Search();
+    }
+    public void cancel() {
+        this.behaviour.cancel();
     }
 }

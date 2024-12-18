@@ -18,36 +18,31 @@ public class BookingController {
     }
     @GetMapping("/Search hotels")
     public String searchHotels() {
-        BookingCommand bookingCommand = new SearchCommand(new EventBehaviour());
-        bookingService.execute(bookingCommand);
+        BookingService bookingService = new HotelBookingFactory();
+        bookingService.Search();
         return "Search";
     }
     @GetMapping("/Search events")
     public String searchEvents() {
-        BookingCommand bookingCommand = new SearchCommand(new HotelBehaviour());
         return "Search";
     }
     @PostMapping("/Book Hotel")
     public String bookHotel(ApplicationEventPublisher applicationEventPublisher) {
-        BookingCommand bookingCommand = new BookCommand(new HotelBehaviour());
         applicationEventPublisher.publishEvent(new Booking());
         return "Book Hotel";
     }
     @PostMapping("/Book Event")
     public String bookEvent() {
-        BookingCommand bookingCommand = new BookCommand(new EventBehaviour());
         return "Book Event";
     }
 
     @DeleteMapping("/Cancel hotel booking")
     public String cancelHotelBooking() {
-        BookingCommand bookingCommand = new CancelCommand(new HotelBehaviour());
         return "Cancel";
     }
 
     @DeleteMapping("/Cancel event booking")
     public String cancelEventBooking() {
-        BookingCommand bookingCommand = new CancelCommand(new EventBehaviour());
         return "Cancel";
     }
 }

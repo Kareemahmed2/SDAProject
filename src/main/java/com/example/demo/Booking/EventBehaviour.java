@@ -1,5 +1,7 @@
 package com.example.demo.Booking;
 
+import java.util.ArrayList;
+
 public class EventBehaviour implements Behaviour{
     @Override
     public Booking book() {
@@ -7,12 +9,13 @@ public class EventBehaviour implements Behaviour{
     }
 
     @Override
-    public void Search() {
-
+    public ArrayList<Entities> Search() {
+        return null;
     }
 
     @Override
-    public void cancel() {
+    public boolean cancel() {
 
+        return false;
     }
 }

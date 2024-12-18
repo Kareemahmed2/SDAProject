@@ -4,22 +4,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+
 public class Room {
 
     @Id
     @SequenceGenerator(name = "room_sequence", sequenceName = "room_sequence", allocationSize = 1)
     @GeneratedValue(generator = "room_sequence", strategy = javax.persistence.GenerationType.SEQUENCE)
     private Long id;
-    String roomType;
+    public enum RoomType {
+        SINGLE,
+        DOUBLE,
+        FAMILY
+    }
+    RoomType roomType;
     int roomNumber;
     int price;
 
 
-    public String getRoomType() {
+    public RoomType getRoomType() {
         return roomType;
     }
 
-    public void setRoomType(String roomType) {
+    public void setRoomType(RoomType roomType) {
         this.roomType = roomType;
     }
 
