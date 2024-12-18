@@ -37,5 +37,24 @@ public class UserService {
         Optional<User> user = GetUserByUsername(username);
         return user.isPresent() && user.get().getPassword().equals(password);
     }
+
+    public boolean updateUser(User user) {
+        Optional<User> existingUserOptional = users.stream()
+                .filter(u -> u.getId().equals(user.getId()))
+                .findFirst();
+
+        if (existingUserOptional.isPresent()) {
+            User existingUser = existingUserOptional.get();
+            existingUser.setUsername(user.getUsername());
+            existingUser.setPassword(user.getPassword());
+            existingUser.setEmail(user.getEmail());
+            return true;
+        }
+        return false;
+    }
+
+    public boolean deleteUser(Long id) {
+        return users.removeIf(user -> user.getId().equals(id));
+    }
 }
 

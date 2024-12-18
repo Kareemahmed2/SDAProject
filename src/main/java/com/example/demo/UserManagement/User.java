@@ -15,6 +15,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private int age;
     private ArrayList<Booking> bookings = new ArrayList<>();
 
     public User(String username, String password, String email) {

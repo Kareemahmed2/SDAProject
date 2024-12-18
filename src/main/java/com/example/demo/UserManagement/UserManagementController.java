@@ -2,10 +2,7 @@ package com.example.demo.UserManagement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/userManagement")
@@ -30,4 +27,21 @@ public class UserManagementController {
         }
         throw new RuntimeException("Invalid credentials");
     }
-}
+    @PutMapping("/update")
+    public String update(@RequestBody User user){
+        boolean isUpdated = userService.updateUser(user);
+        if (isUpdated) {
+            return "User updated successfully.";
+        }
+        throw new RuntimeException("User update failed.");
+    }
+        @DeleteMapping("/delete/{id}")
+        public String delete(@PathVariable Long id) {
+            boolean isDeleted = userService.deleteUser(id);
+            if (isDeleted) {
+                return "User deleted successfully.";
+            }
+            throw new RuntimeException("User deletion failed.");
+        }
+    }
+
