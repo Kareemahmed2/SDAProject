@@ -1,47 +1,45 @@
 package com.example.demo.Booking;
 
+import com.example.demo.UserManagement.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
 @RequestMapping("/api")
-@Controller
 public class BookingController {
     private final BookingService bookingService;
     @Autowired
     public BookingController(BookingService bookingService) {
         this.bookingService = bookingService;
     }
-    @GetMapping("/Search hotels")
+    @GetMapping("/SearchHotels")
     public String searchHotels() {
-        BookingService bookingService = new HotelBookingFactory();
-        bookingService.Search();
+        bookingService.SearchHotels();
         return "Search";
     }
-    @GetMapping("/Search events")
+    @GetMapping("/SearchEvents")
     public String searchEvents() {
         return "Search";
     }
-    @PostMapping("/Book Hotel")
-    public String bookHotel(ApplicationEventPublisher applicationEventPublisher) {
-        applicationEventPublisher.publishEvent(new Booking());
+    @PostMapping("/BookHotel")
+    public String bookHotel(@RequestBody HotelBookingRequest request,@RequestHeader("Authorization") String authorization) {
+        String username = new JWTUtil().extractUsername(authorization);
+        bookingService.setBehaviour(new HotelBehaviour(bookingService.repo));
+        request.setUsername(username);
+        bookingService.book(request);
         return "Book Hotel";
     }
-    @PostMapping("/Book Event")
+    @PostMapping("/BookEvent")
     public String bookEvent() {
         return "Book Event";
     }
 
-    @DeleteMapping("/Cancel hotel booking")
+    @DeleteMapping("/CancelHotelBooking")
     public String cancelHotelBooking() {
         return "Cancel";
     }
 
-    @DeleteMapping("/Cancel event booking")
+    @DeleteMapping("/CancelEventBooking")
     public String cancelEventBooking() {
         return "Cancel";
     }

@@ -1,0 +1,23 @@
+[ {
+  "name" : "Hotel 1",
+  "location" : "Cairo",
+  "description" : "This is Hotel 1",
+  "rooms" : [ {
+    "roomType" : "SINGLE",
+    "roomNumber" : 2,
+    "price" : 100.0
+  }, {
+    "roomType" : "DOUBLE",
+    "roomNumber" : 3,
+    "price" : 150.0
+  } ]
+}, {
+  "name" : "Hotel 2",
+  "location" : "Cairo",
+  "description" : "This is Hotel 2",
+  "rooms" : [ {
+    "roomType" : "FAMILY",
+    "roomNumber" : 1,
+    "price" : 250.0
+  } ]
+} ]

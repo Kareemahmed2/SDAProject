@@ -1,15 +1,18 @@
 package com.example.demo.Booking;
 
-import java.util.ArrayList;
+import org.springframework.stereotype.Service;
 
-public class EventBehaviour implements Behaviour{
+import java.util.List;
+
+@Service
+public class EventBehaviour implements Behaviour<Event,EventBookingRequest>{
     @Override
-    public Booking book() {
-        return null;
+    public void book(EventBookingRequest eventBookingRequest) {
+
     }
 
     @Override
-    public ArrayList<Entities> Search() {
+    public List<Event> Search() {
         return null;
     }
 

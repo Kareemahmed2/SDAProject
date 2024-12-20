@@ -1,26 +1,25 @@
 package com.example.demo.Booking;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class HotelBooking extends Booking {
 
-    @Id
-    @SequenceGenerator(name = "hotelbooking_sequence", sequenceName = "hotelbooking_sequence", allocationSize = 1)
-    @GeneratedValue(generator = "hotelbooking_sequence", strategy = javax.persistence.GenerationType.SEQUENCE)
-    private Long id;
-    private String name;
+    @JsonProperty
+    String roomType;
 
 
-    private Hotel hotel;
-
-    public void setId(Long id) {
-        this.id = id;
+    public HotelBooking(String name, Room roomType, int NumberOfDays) {
+        this.name = name;
+        this.roomType = roomType.getRoomType();
+        this.totalCost = roomType.getPrice() * NumberOfDays;
     }
-
-    public Long getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "HotelBooking{" +
+                " name='" + name + '\'' +
+                ", roomType='" + roomType + '\'' +
+                ", totalCost='" + totalCost + '\'' +
+                '}';
     }
+    public HotelBooking() {}
 }

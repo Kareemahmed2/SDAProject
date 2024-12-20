@@ -1,28 +1,47 @@
 package com.example.demo.Booking;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class Room {
-
-    @Id
-    @SequenceGenerator(name = "room_sequence", sequenceName = "room_sequence", allocationSize = 1)
-    @GeneratedValue(generator = "room_sequence", strategy = javax.persistence.GenerationType.SEQUENCE)
-    private Long id;
     public enum RoomType {
-        SINGLE,
-        DOUBLE,
-        FAMILY
+        SINGLE("single"),
+        DOUBLE("double"),
+        FAMILY("family");
+
+        private final String name;
+
+        RoomType(String name) {
+            this.name = name;
+        }
+
+        public String getRoomType() {
+            return name;
+        }
+        @JsonCreator
+        public static RoomType fromString(String key) {
+            for (RoomType type : RoomType.values()) {
+                if (type.name.equalsIgnoreCase(key)) {  // Case-insensitive matching
+                    return type;
+                }
+            }
+            throw new IllegalArgumentException("Invalid room type: " + key);
+        }
     }
-    RoomType roomType;
-    int roomNumber;
-    int price;
 
+    protected RoomType roomType;
+    protected int roomNumber;
+    protected double price;
 
-    public RoomType getRoomType() {
-        return roomType;
+    public Room(String roomType, int roomNumber, double price) {
+        this.roomType = RoomType.fromString(roomType);
+        this.roomNumber = roomNumber;
+        this.price = price;
+    }
+
+    public Room() {}
+
+    public String getRoomType() {
+        return roomType.getRoomType();
     }
 
     public void setRoomType(RoomType roomType) {
@@ -37,19 +56,11 @@ public class Room {
         this.roomNumber = roomNumber;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 }

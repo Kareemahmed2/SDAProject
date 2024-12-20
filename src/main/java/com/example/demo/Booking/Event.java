@@ -1,17 +1,10 @@
 package com.example.demo.Booking;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import java.time.LocalDate;
 
 
 public class Event {
 
-    @Id
-    @SequenceGenerator(name = "event_sequence", sequenceName = "event_sequence", allocationSize = 1)
-    @GeneratedValue(generator = "event_sequence", strategy = javax.persistence.GenerationType.SEQUENCE)
-    private Long id;
     private LocalDate StartDate;
     private LocalDate EndDate;
     private String name;
@@ -27,16 +20,8 @@ public class Event {
     }
 
     public Event() {
-
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 
     public LocalDate getStartDate() {
         return StartDate;
