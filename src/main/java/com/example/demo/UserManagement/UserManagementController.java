@@ -34,6 +34,14 @@ public class UserManagementController {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials.");
     }
 
+    @GetMapping("/get")
+    public ResponseEntity<User> getUser(@RequestParam String username) {
+        User user = userService.getUser(username);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        }
+        return ResponseEntity.notFound().build();
+    }
     @PutMapping("/update")
     public String update(@RequestBody User user){
         boolean isUpdated = userService.updateUser(user);
@@ -42,9 +50,9 @@ public class UserManagementController {
         }
         throw new RuntimeException("User update failed.");
     }
-        @DeleteMapping("/delete/{id}")
-        public String delete(@PathVariable Long id) {
-            boolean isDeleted = userService.deleteUser(id);
+        @DeleteMapping("/delete/{username}")
+        public String delete(@PathVariable String username) {
+            boolean isDeleted = userService.deleteUser(username);
             if (isDeleted) {
                 return "User deleted successfully.";
             }

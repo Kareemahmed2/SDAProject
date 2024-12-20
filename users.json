@@ -1,0 +1,29 @@
+[ {
+  "username" : "admin",
+  "password" : "admin",
+  "email" : "admin",
+  "age" : 19,
+  "bookings" : [ ]
+}, {
+  "username" : "user",
+  "password" : "user",
+  "email" : "user",
+  "age" : 21,
+  "bookings" : [ ]
+}, {
+  "username" : "kareem",
+  "password" : "password1",
+  "email" : "kareem@gmail.com",
+  "age" : 30,
+  "bookings" : [ {
+    "type" : "HotelBooking",
+    "name" : "Hotel 1",
+    "totalCost" : 1000.0,
+    "roomType" : "single"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 2",
+    "totalCost" : 750.0,
+    "roomType" : "family"
+  } ]
+} ]

@@ -24,10 +24,11 @@ public class JWTUtil {
     }
 
     public String extractUsername(String token) {
+        String cleanToken = token.replace("Bearer ", "").trim(); // Remove 'Bearer ' prefix and trim spaces
         return Jwts.parserBuilder()
                 .setSigningKey(SECRET_KEY) // Use the same key for validation
                 .build()
-                .parseClaimsJws(token)
+                .parseClaimsJws(cleanToken)
                 .getBody()
                 .getSubject();
     }

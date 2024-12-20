@@ -1,38 +1,26 @@
 package com.example.demo.UserManagement;
 
 import com.example.demo.Booking.Booking;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import java.util.ArrayList;
 
 public class User {
-    @Id
-    @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
-    @GeneratedValue(generator = "user_sequence", strategy = javax.persistence.GenerationType.SEQUENCE)
-    private Long id;
     private String username;
     private String password;
     private String email;
     private int age;
+    @JsonProperty
     private ArrayList<Booking> bookings = new ArrayList<>();
 
-    public User(String username, String password, String email) {
+    public User(String username, String password, String email,int age) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.age= age;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
+    public User() {}
     public String getUsername() {
         return username;
     }
@@ -63,5 +51,16 @@ public class User {
 
     public int getAge() {
         return age;
+    }
+
+    public ArrayList<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(ArrayList<Booking> bookings) {
+        this.bookings = bookings;
+    }
+    public void AddBooking(Booking booking) {
+        this.bookings.add(booking);
     }
 }
