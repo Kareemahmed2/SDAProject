@@ -11,7 +11,7 @@ public class BookingService {
     protected final BookingRepoImp repo;
 
     @Autowired
-    public BookingService(Behaviour behaviour,BookingRepoImp repo) {
+    public BookingService(Behaviour behaviour, BookingRepoImp repo) {
         this.behaviour = behaviour;
         this.repo = repo;
     }
@@ -23,10 +23,7 @@ public class BookingService {
     public void book(BookingRequest bookingRequest) {
         this.behaviour.book(bookingRequest);
     }
-    public List SearchHotels() {
-        return this.behaviour.Search();
-    }
-    public void cancel() {
-        this.behaviour.cancel();
+    public List Search(SearchingCriteria searchingCriteria) {
+        return this.behaviour.Search(searchingCriteria);
     }
 }

@@ -19,17 +19,17 @@ public class BookingRepoImp implements BookingRepository{
 
     @Override
     public void AddBooking(String username, Booking booking) {
-        DataStorage.addHotelBooking(username, booking);
+        DataStorage.addBooking(username, booking);
     }
 
     @Override
-    public List<Hotel> searchHotels() {
-        return DataStorage.loadHotels();
+    public List<Hotel> searchHotels(SearchingCriteria criteria) {
+        return DataStorage.searchHotels(criteria);
     }
 
     @Override
-    public List<Event> searchEvents() {
-        return DataStorage.loadEvents();
+    public List<Event> searchEvents(SearchingCriteria criteria) {
+        return DataStorage.searchEvents(criteria);
     }
 
     @Override

@@ -7,8 +7,6 @@ import java.time.LocalDate;
 public class EventBooking extends Booking{
     @JsonProperty
     String Location;
-    @JsonProperty
-    LocalDate date;
 
     public EventBooking(String name,String Location,LocalDate date,double totalCost) {
         this.name = name;

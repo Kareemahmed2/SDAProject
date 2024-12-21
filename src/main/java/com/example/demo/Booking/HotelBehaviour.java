@@ -23,18 +23,13 @@ public class HotelBehaviour implements Behaviour<Hotel, HotelBookingRequest>{
                 .filter(room1 -> room1.getRoomType().equals(request.getRoomType().getRoomType())) // Compare enum values directly
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Room type not found: " + request.getRoomType()));
-        Booking hotelBooking = new HotelBooking(request.getName(),room,request.getNumberOfDays());
-        System.out.println(request.getUsername());
+        Booking hotelBooking = new HotelBooking(request.getName(),room,request.getDate() ,request.getNumberOfDays());
         repository.AddBooking(request.getUsername(), hotelBooking);
     }
 
     @Override
-    public List<Hotel> Search() {
-        return null;
+    public List<Hotel> Search(SearchingCriteria searchingCriteria) {
+        return repository.searchHotels(searchingCriteria);
     }
 
-    @Override
-    public boolean cancel() {
-        return false;
-    }
 }

@@ -8,6 +8,5 @@ import java.util.List;
 public interface Behaviour<T,R extends BookingRequest> {
 
     void book(R bookingRequest);
-    List<T> Search();
-    boolean cancel();
+    List<T> Search(SearchingCriteria searchingCriteria);
 }

@@ -18,24 +18,8 @@
   "bookings" : [ {
     "type" : "HotelBooking",
     "name" : "Hotel 1",
-    "totalCost" : 1000.0,
-    "roomType" : "single"
-  }, {
-    "type" : "HotelBooking",
-    "name" : "Hotel 2",
-    "totalCost" : 750.0,
-    "roomType" : "family"
-  }, {
-    "type" : "EventBooking",
-    "name" : "Concert",
-    "totalCost" : 0.0,
-    "Location" : "Opera House",
-    "date" : [ 2024, 1, 1 ]
-  }, {
-    "type" : "EventBooking",
-    "name" : "Exhibition",
-    "totalCost" : 50.0,
-    "Location" : "Art Gallery",
-    "date" : [ 2024, 2, 1 ]
+    "totalCost" : 450.0,
+    "date" : [ 2024, 2, 2 ],
+    "roomType" : "double"
   } ]
 } ]

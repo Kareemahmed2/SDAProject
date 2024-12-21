@@ -3,6 +3,8 @@ package com.example.demo.Booking;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+import java.time.LocalDate;
+
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -15,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 public abstract class Booking {
     protected String name;
     protected double totalCost;
+    protected LocalDate date;
 
     public Booking() {}
 
@@ -30,7 +33,11 @@ public abstract class Booking {
         return totalCost;
     }
 
-    public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }

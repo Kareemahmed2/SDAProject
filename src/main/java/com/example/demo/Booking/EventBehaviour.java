@@ -20,13 +20,8 @@ public class EventBehaviour implements Behaviour<Event,EventBookingRequest>{
     }
 
     @Override
-    public List<Event> Search() {
-        return null;
+    public List<Event> Search(SearchingCriteria searchingCriteria) {
+        return repo.searchEvents(searchingCriteria);
     }
 
-    @Override
-    public boolean cancel() {
-
-        return false;
-    }
 }

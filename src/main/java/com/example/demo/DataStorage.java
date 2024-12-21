@@ -1,9 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.Booking.Booking;
-import com.example.demo.Booking.Event;
-import com.example.demo.Booking.Hotel;
-import com.example.demo.Booking.Room;
+import com.example.demo.Booking.*;
 import com.example.demo.UserManagement.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -96,17 +93,12 @@ public class DataStorage {
         saveEvents(events);
     }
 
-    public static void addHotelBooking(String username, Booking booking) {
+    public static void addBooking(String username, Booking booking) {
         List<User> users = loadUsers();
         users.stream().filter(user -> user.getUsername().equals(username)).findFirst().ifPresent(user -> user.AddBooking(booking));
         saveUsers(users);
     }
 
-    public static void addEventBooking(String username, Booking booking) {
-        List<User> users = loadUsers();
-        users.stream().filter(user -> user.getUsername().equals(username)).findFirst().ifPresent(user -> user.AddBooking(booking));
-        saveUsers(users);
-    }
     public static User getUserByUsername(String username) {
         return loadUsers().stream()
                 .filter(user -> user.getUsername().equalsIgnoreCase(username))
@@ -126,6 +118,27 @@ public class DataStorage {
                 .filter(event -> event.getName().equalsIgnoreCase(name))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public static List<Hotel> searchHotels(SearchingCriteria searchingCriteria) {
+        List<Hotel> hotels = loadHotels().stream()
+                .filter(hotel ->
+                        (searchingCriteria.getName() == null || hotel.getName().equals(searchingCriteria.getName()))
+                        && (searchingCriteria.getLocation() == null || hotel.getLocation().equals(searchingCriteria.getLocation())))
+                .toList();
+        if(hotels==loadHotels())
+            return null;
+        return hotels;
+    }
+    public static List<Event> searchEvents(SearchingCriteria searchingCriteria) {
+        List<Event> events = loadEvents().stream()
+                .filter(event ->
+                        (searchingCriteria.getName() == null || event.getName().equals(searchingCriteria.getName()))
+                        && (searchingCriteria.getLocation() == null || event.getLocation().equals(searchingCriteria.getLocation()))
+                        && (searchingCriteria.getDate() == null || event.getStartDate().equals(searchingCriteria.getDate()))).toList();
+        if(events==loadEvents())
+            return null;
+        return events;
     }
 
     // File reading and writing utilities
@@ -151,8 +164,6 @@ public class DataStorage {
 
     // Generate initial data
     public static void generateData() {
-        addEvent(new Event(LocalDate.parse("2024-01-01"), LocalDate.parse("2024-01-02"), "Concert", "Music event", "Opera House",120));
-        addEvent(new Event(LocalDate.parse("2024-02-01"), LocalDate.parse("2024-02-02"), "Exhibition", "Art event", "Art Gallery",50));
         if (!new File(USERS_FILE).exists() || !new File(HOTELS_FILE).exists() || !new File(EVENTS_FILE).exists()) {
 
             // Users

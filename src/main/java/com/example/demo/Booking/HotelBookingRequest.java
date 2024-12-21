@@ -1,12 +1,16 @@
 package com.example.demo.Booking;
 
+import java.time.LocalDate;
+
 public class HotelBookingRequest extends BookingRequest{
     private Room.RoomType roomType;
     private int NumberOfDays;
+    private LocalDate date;
 
-    public HotelBookingRequest(String HotelName, String username, String roomType, int numberOfDays) {
+    public HotelBookingRequest(String HotelName, String username,LocalDate date ,String roomType, int numberOfDays) {
         this.username = username;
         this.name = HotelName;
+        this.date = date;
         this.roomType = Room.RoomType.fromString(roomType);
         NumberOfDays = numberOfDays;
     }
@@ -19,6 +23,14 @@ public class HotelBookingRequest extends BookingRequest{
         this.roomType = roomType;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
     public int getNumberOfDays() {
         return NumberOfDays;
     }
@@ -26,4 +38,5 @@ public class HotelBookingRequest extends BookingRequest{
     public void setNumberOfDays(int numberOfDays) {
         NumberOfDays = numberOfDays;
     }
+
 }
