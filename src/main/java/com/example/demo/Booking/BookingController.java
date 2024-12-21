@@ -30,7 +30,11 @@ public class BookingController {
         return "Book Hotel";
     }
     @PostMapping("/BookEvent")
-    public String bookEvent() {
+    public String bookEvent(@RequestBody EventBookingRequest request,@RequestHeader("Authorization") String authorization) {
+        String username = new JWTUtil().extractUsername(authorization);
+        bookingService.setBehaviour(new EventBehaviour(bookingService.repo));
+        request.setUsername(username);
+        bookingService.book(request);
         return "Book Event";
     }
 

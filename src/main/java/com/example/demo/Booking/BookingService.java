@@ -14,7 +14,6 @@ public class BookingService {
     public BookingService(Behaviour behaviour,BookingRepoImp repo) {
         this.behaviour = behaviour;
         this.repo = repo;
-
     }
 
 

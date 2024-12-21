@@ -10,13 +10,15 @@ public class Event {
     private String name;
     private String description;
     private String location;
+    private Integer ticketPrice;
 
-    public Event(LocalDate startDate, LocalDate endDate, String name, String description, String location) {
+    public Event(LocalDate startDate, LocalDate endDate, String name, String description, String location, Integer ticketPrice) {
         StartDate = startDate;
         EndDate = endDate;
         this.name = name;
         this.description = description;
         this.location = location;
+        this.ticketPrice = ticketPrice;
     }
 
     public Event() {
@@ -61,5 +63,13 @@ public class Event {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Integer getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public void setTicketPrice(Integer ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
 }

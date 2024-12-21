@@ -11,10 +11,6 @@ public class HotelBookingRequest extends BookingRequest{
         NumberOfDays = numberOfDays;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public Room.RoomType getRoomType() {
         return roomType;
     }

@@ -102,6 +102,11 @@ public class DataStorage {
         saveUsers(users);
     }
 
+    public static void addEventBooking(String username, Booking booking) {
+        List<User> users = loadUsers();
+        users.stream().filter(user -> user.getUsername().equals(username)).findFirst().ifPresent(user -> user.AddBooking(booking));
+        saveUsers(users);
+    }
     public static User getUserByUsername(String username) {
         return loadUsers().stream()
                 .filter(user -> user.getUsername().equalsIgnoreCase(username))
@@ -146,6 +151,8 @@ public class DataStorage {
 
     // Generate initial data
     public static void generateData() {
+        addEvent(new Event(LocalDate.parse("2024-01-01"), LocalDate.parse("2024-01-02"), "Concert", "Music event", "Opera House",120));
+        addEvent(new Event(LocalDate.parse("2024-02-01"), LocalDate.parse("2024-02-02"), "Exhibition", "Art event", "Art Gallery",50));
         if (!new File(USERS_FILE).exists() || !new File(HOTELS_FILE).exists() || !new File(EVENTS_FILE).exists()) {
 
             // Users
@@ -165,8 +172,8 @@ public class DataStorage {
 
 
             // Events
-            addEvent(new Event(LocalDate.parse("2024-01-01"), LocalDate.parse("2024-01-02"), "Concert", "Music event", "Opera House"));
-            addEvent(new Event(LocalDate.parse("2024-02-01"), LocalDate.parse("2024-02-02"), "Exhibition", "Art event", "Art Gallery"));
+            addEvent(new Event(LocalDate.parse("2024-01-01"), LocalDate.parse("2024-01-02"), "Concert", "Music event", "Opera House",120));
+            addEvent(new Event(LocalDate.parse("2024-02-01"), LocalDate.parse("2024-02-02"), "Exhibition", "Art event", "Art Gallery",50));
         }
     }
 
