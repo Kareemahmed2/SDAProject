@@ -1,6 +1,7 @@
 package com.example.demo.UserManagement;
 
 import com.example.demo.Booking.Booking;
+import com.example.demo.NotificationHandler.Notification;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ public class User {
     private int age;
     @JsonProperty
     private ArrayList<Booking> bookings = new ArrayList<>();
+    @JsonProperty
+    private ArrayList<Notification> notifications = new ArrayList<>();
 
     public User(String username, String password, String email,int age) {
         this.username = username;
@@ -62,5 +65,8 @@ public class User {
     }
     public void AddBooking(Booking booking) {
         this.bookings.add(booking);
+    }
+    public void AddNotification(Notification notification) {
+        this.notifications.add(notification);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.Booking.*;
+import com.example.demo.NotificationHandler.Notification;
 import com.example.demo.UserManagement.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -96,6 +97,11 @@ public class DataStorage {
     public static void addBooking(String username, Booking booking) {
         List<User> users = loadUsers();
         users.stream().filter(user -> user.getUsername().equals(username)).findFirst().ifPresent(user -> user.AddBooking(booking));
+        saveUsers(users);
+    }
+    public static void addNotification(String username, Notification notification) {
+        List<User> users = loadUsers();
+        users.stream().filter(user -> user.getUsername().equals(username)).findFirst().ifPresent(user -> user.AddNotification(notification));
         saveUsers(users);
     }
 

@@ -1,7 +1,9 @@
 package com.example.demo.UserManagement;
 
 import com.example.demo.DataStorage;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserRepo implements UserRepository{
 
     @Override
