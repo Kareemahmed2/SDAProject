@@ -12,6 +12,7 @@ public class Recommendation {
         this.username = username;
         this.events = events;
     }
+    public Recommendation(){}
 
     public String getUsername() {
         return username;

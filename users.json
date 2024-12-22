@@ -59,6 +59,24 @@
     "totalCost" : 50.0,
     "date" : [ 2024, 2, 1 ],
     "Location" : "Art Gallery"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 2",
+    "totalCost" : 750.0,
+    "date" : [ 2024, 2, 2 ],
+    "roomType" : "family"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 2",
+    "totalCost" : 750.0,
+    "date" : [ 2024, 2, 2 ],
+    "roomType" : "family"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 2",
+    "totalCost" : 750.0,
+    "date" : [ 2024, 1, 2 ],
+    "roomType" : "family"
   } ],
   "notifications" : [ {
     "type" : "SMSNotification",
@@ -66,5 +84,28 @@
   }, {
     "type" : "SMSNotification",
     "message" : "Hi kareem, the booking request for Exhibition has been confirmed. Thank you for choosing us!"
+  }, {
+    "type" : "SMSNotification",
+    "message" : "Hi kareem, the booking request for Hotel 2 has been confirmed. Thank you for choosing us!"
+  }, {
+    "type" : "SMSNotification",
+    "message" : "Hi kareem, the booking request for Hotel 2 has been confirmed. Thank you for choosing us!"
+  }, {
+    "type" : "RecommendationNotification",
+    "message" : "Hi kareem, we have a recommendation for you!",
+    "recommendation" : {
+      "username" : "kareem",
+      "events" : [ ]
+    }
+  }, {
+    "type" : "SMSNotification",
+    "message" : "Hi kareem, the booking request for Hotel 2 has been confirmed. Thank you for choosing us!"
+  }, {
+    "type" : "RecommendationNotification",
+    "message" : "Hi kareem, we have a recommendation for you!",
+    "recommendation" : {
+      "username" : "kareem",
+      "events" : [ ]
+    }
   } ]
 } ]

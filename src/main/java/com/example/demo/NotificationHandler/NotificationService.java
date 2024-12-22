@@ -26,6 +26,7 @@ public class NotificationService {
     public void sendRecommendationNotification(Recommendation recommendation) {
         Notification notification=new RecommendationNotification(recommendation);
         notification.CreateNotification();
+        notification.getBookingRequest().setUsername(recommendation.getUsername());
         notificationQueue.addNotification(notification);
     }
 }

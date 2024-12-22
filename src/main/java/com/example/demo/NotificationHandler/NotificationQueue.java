@@ -25,8 +25,11 @@ public class NotificationQueue {
     public void processNotifications() {
         while (!queue.isEmpty()) {
             Notification notification = queue.poll();
-            System.out.println("Processing notification: " + notification.getMessage());
+            System.out.println("Processing notification: " + notification.getMessage()+ " for user:"+notification.getBookingRequest().getUsername());
             dispatcher.dispatchNotification(notification);
         }
+    }
+    public void DispatchNotifications() {
+
     }
 }
