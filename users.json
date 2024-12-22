@@ -3,13 +3,15 @@
   "password" : "admin",
   "email" : "admin",
   "age" : 19,
-  "bookings" : [ ]
+  "bookings" : [ ],
+  "notifications" : [ ]
 }, {
   "username" : "user",
   "password" : "user",
   "email" : "user",
   "age" : 21,
-  "bookings" : [ ]
+  "bookings" : [ ],
+  "notifications" : [ ]
 }, {
   "username" : "kareem",
   "password" : "password1",
@@ -21,5 +23,48 @@
     "totalCost" : 450.0,
     "date" : [ 2024, 2, 2 ],
     "roomType" : "double"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 1",
+    "totalCost" : 450.0,
+    "date" : [ 2024, 2, 2 ],
+    "roomType" : "double"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 1",
+    "totalCost" : 450.0,
+    "date" : [ 2024, 2, 2 ],
+    "roomType" : "double"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 1",
+    "totalCost" : 450.0,
+    "date" : [ 2024, 2, 2 ],
+    "roomType" : "double"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 1",
+    "totalCost" : 450.0,
+    "date" : [ 2024, 2, 2 ],
+    "roomType" : "double"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 1",
+    "totalCost" : 450.0,
+    "date" : [ 2024, 2, 2 ],
+    "roomType" : "double"
+  }, {
+    "type" : "EventBooking",
+    "name" : "Exhibition",
+    "totalCost" : 50.0,
+    "date" : [ 2024, 2, 1 ],
+    "Location" : "Art Gallery"
+  } ],
+  "notifications" : [ {
+    "type" : "SMSNotification",
+    "message" : "Hi kareem, the booking request for Hotel 1 has been confirmed. Thank you for choosing us!"
+  }, {
+    "type" : "SMSNotification",
+    "message" : "Hi kareem, the booking request for Exhibition has been confirmed. Thank you for choosing us!"
   } ]
 } ]

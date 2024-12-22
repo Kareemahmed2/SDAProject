@@ -1,21 +1,51 @@
 package com.example.demo.NotificationHandler;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import com.example.demo.Booking.BookingRequest;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-public class Notification {
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type"
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = SMSNotification.class, name = "SMSNotification"),
+        @JsonSubTypes.Type(value = EmailNotification.class, name = "EmailNotification"),
+        @JsonSubTypes.Type(value = RecommendationNotification.class, name = "RecommendationNotification")
+})
+public abstract class Notification {
 
-    @Id
-    @SequenceGenerator(name = "notification_sequence", sequenceName = "notification_sequence", allocationSize = 1)
-    @GeneratedValue(generator = "notification_sequence", strategy = javax.persistence.GenerationType.SEQUENCE)
-    private Long id;
+    private String message;
+    @JsonIgnore
+    protected BookingRequest bookingRequest;
 
-    public void setId(Long id) {
-        this.id = id;
+    public Notification() {
+        this.bookingRequest = new BookingRequest(); // Default initialization
     }
 
-    public Long getId() {
-        return id;
+    // Template method - defines the steps
+    public final void CreateNotification() {
+        message = generateMessage();
+        logNotification(message);
+    }
+
+    protected abstract String generateMessage();
+
+    private void logNotification(String message) {
+        System.out.println("Logging notification: " + message);
+    }
+
+    public BookingRequest getBookingRequest() {
+        return bookingRequest;
+    }
+
+    public void setBookingRequest(BookingRequest bookingRequest) {
+        this.bookingRequest = bookingRequest;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

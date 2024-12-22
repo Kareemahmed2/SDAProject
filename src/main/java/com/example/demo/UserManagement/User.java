@@ -69,4 +69,12 @@ public class User {
     public void AddNotification(Notification notification) {
         this.notifications.add(notification);
     }
+
+    public ArrayList<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(ArrayList<Notification> notifications) {
+        this.notifications = notifications;
+    }
 }
