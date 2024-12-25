@@ -56,7 +56,7 @@ A robust and scalable API for managing hotel and event bookings. This API allows
     Navigate to http://localhost:8080.
    
 ## EndPoints
-### **User Endpoints**
+### **User Endpoints (/user)**
 | HTTP Method | Endpoint       | Description                     |
 |-------------|----------------|---------------------------------|
 | POST        | `/register`    | Register a new user             |
@@ -64,24 +64,25 @@ A robust and scalable API for managing hotel and event bookings. This API allows
 | PUT         | `/update`      | Update user details             |
 | DELETE      | `/delete/{id}` | Delete a user                   |
 
-### **Booking Endpoints**
+### **Booking Endpoints (/api)**
 | HTTP Method | Endpoint          | Description          |
 |-------------|-------------------|----------------------|
-| GET         | `/bookings`       | Get all bookings     |
-| POST        | `/bookings`       | Create a new booking |
-| PUT         | `/bookings/{id}`  | Update a booking     |
-| DELETE      | `/bookings/{id}`  | Cancel a booking     |
+| POST        | `/BookHotel`      | Create a new booking |
+| GET         | `/SearchHotels`   | Search for hotels    |
 
 
-### **Event Endpoints**
+### **Event Endpoints (/api)**
 | HTTP Method | Endpoint          | Description            |
 |-------------|-------------------|------------------------|
-| GET         | `/events`         | Get all events         |
-| POST        | `/events`         | Create a new event     |
-| PUT         | `/events/{id}`    | Update event details   |
-| DELETE      | `/events/{id}`    | Delete an event        |
+| POST        | `/BookEvent`      | Create a new event     |
+| GET         | `/SearchEvents`   | Delete an event        |
 
 
+### **Dashboard Endpoints (/dashboard)**
+| HTTP Method | Endpoint          | Description            |
+|-------------|-------------------|------------------------|
+| GET         | `/bookings`       | Print bookings for user|
+| GET         | `/notifications`  | Display Notifications  |
 
 ## Team Information
 - **Jana Salem**: Handled the class diagram and full implementation of the API.
