@@ -50,8 +50,8 @@ public class UserManagementController {
         }
         throw new RuntimeException("User update failed.");
     }
-        @DeleteMapping("/delete/{username}")
-        public String delete(@PathVariable String username) {
+        @DeleteMapping("/delete/")
+        public String delete(@RequestParam String username) {
             boolean isDeleted = userService.deleteUser(username);
             if (isDeleted) {
                 return "User deleted successfully.";
