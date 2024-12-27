@@ -82,4 +82,18 @@
   "ticketPrice" : 50,
   "startDate" : [ 2024, 2, 1 ],
   "endDate" : [ 2024, 2, 2 ]
+}, {
+  "name" : "Test Event",
+  "description" : null,
+  "location" : null,
+  "ticketPrice" : null,
+  "startDate" : null,
+  "endDate" : null
+}, {
+  "name" : "Test Event",
+  "description" : null,
+  "location" : null,
+  "ticketPrice" : null,
+  "startDate" : null,
+  "endDate" : null
 } ]

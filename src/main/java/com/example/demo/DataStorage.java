@@ -24,7 +24,7 @@ public class DataStorage {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();// Load data from files
     @PostConstruct
-    public void init() {
+    public static void init() {
         objectMapper.registerModule(new JavaTimeModule());
         generateData();
     }

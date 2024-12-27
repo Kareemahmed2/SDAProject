@@ -3,11 +3,11 @@
   "location" : "Cairo",
   "description" : "This is Hotel 1",
   "rooms" : [ {
-    "roomType" : "SINGLE",
+    "roomType" : "single",
     "roomNumber" : 2,
     "price" : 100.0
   }, {
-    "roomType" : "DOUBLE",
+    "roomType" : "double",
     "roomNumber" : 3,
     "price" : 150.0
   } ]
@@ -16,8 +16,18 @@
   "location" : "Cairo",
   "description" : "This is Hotel 2",
   "rooms" : [ {
-    "roomType" : "FAMILY",
+    "roomType" : "family",
     "roomNumber" : 1,
     "price" : 250.0
   } ]
+}, {
+  "name" : "Test Hotel",
+  "location" : "Test City",
+  "description" : "Description",
+  "rooms" : [ ]
+}, {
+  "name" : "Test Hotel",
+  "location" : "Test City",
+  "description" : "Description",
+  "rooms" : [ ]
 } ]

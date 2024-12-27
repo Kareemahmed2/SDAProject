@@ -29,7 +29,4 @@ public class NotificationQueue {
             dispatcher.dispatchNotification(notification);
         }
     }
-    public void DispatchNotifications() {
-
-    }
 }

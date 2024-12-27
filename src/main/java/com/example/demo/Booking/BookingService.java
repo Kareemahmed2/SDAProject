@@ -24,6 +24,7 @@ public class BookingService {
         this.behaviour = behaviour;
     }
     public void book(BookingRequest bookingRequest) {
+        if(bookingRequest==null) throw new RuntimeException("Booking request is empty");
         this.behaviour.book(bookingRequest);
         notificationService.sendBookingNotification(bookingRequest);
     }

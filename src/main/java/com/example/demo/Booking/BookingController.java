@@ -28,7 +28,7 @@ public class BookingController {
         String Location=bookingService.repo.GetHotelByName(request.name).getLocation();
         EventRecommendationTrigger eventRecommendationTrigger = new EventRecommendationTrigger(request,Location);
         eventPublisher.publishEvent(eventRecommendationTrigger);
-        return "Hotel"+ request.getName()+" Booked for "+ request.getUsername();
+        return "Hotel "+ request.getName()+" Booked for "+ request.getUsername();
     }
     @PostMapping("/BookEvent")
     public String bookEvent(@RequestBody EventBookingRequest request,@RequestHeader("Authorization") String authorization) {
@@ -36,7 +36,7 @@ public class BookingController {
         bookingService.setBehaviour(new EventBehaviour(bookingService.repo));
         request.setUsername(username);
         bookingService.book(request);
-        return "Book Event";
+        return "Event: "+ request.getName()+" Booked for "+ request.getUsername();
     }
     @GetMapping("/SearchHotels")
     public List searchHotels(@RequestBody SearchingCriteria criteria) {
