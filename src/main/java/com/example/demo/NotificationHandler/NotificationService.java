@@ -22,6 +22,7 @@ public class NotificationService {
         notification.setBookingRequest(bookingRequest);
         notification.CreateNotification();
         notificationQueue.addNotification(notification);
+        notification=new EmailNotification();
     }
     public void sendRecommendationNotification(Recommendation recommendation) {
         Notification notification=new RecommendationNotification(recommendation);

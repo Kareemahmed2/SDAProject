@@ -1,6 +1,7 @@
 package com.example.demo.Dashboard;
 
 import com.example.demo.Booking.Booking;
+import com.example.demo.NotificationHandler.Notification;
 import com.example.demo.UserManagement.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class DashboardController {
     }
 
     @GetMapping("/notifications")
-    public ResponseEntity<List<String>> printNotifications(@RequestHeader("Authorization") String authorization) {
+    public ResponseEntity<List<Notification>> printNotifications(@RequestHeader("Authorization") String authorization) {
         String username=jwtUtil.extractUsername(authorization);
         return ResponseEntity.ok(dashboardService.printNotifications(username));
     }

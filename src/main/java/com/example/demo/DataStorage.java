@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class DataStorage {
@@ -139,9 +140,9 @@ public class DataStorage {
     public static List<Event> searchEvents(SearchingCriteria searchingCriteria) {
         List<Event> events = loadEvents().stream()
                 .filter(event ->
-                        (searchingCriteria.getName() == null || event.getName().equals(searchingCriteria.getName()))
-                        && (searchingCriteria.getLocation() == null || event.getLocation().equals(searchingCriteria.getLocation()))
-                        && (searchingCriteria.getDate() == null || event.getStartDate().equals(searchingCriteria.getDate()))).toList();
+                        (searchingCriteria.getName() == null || Objects.equals(event.getName(), searchingCriteria.getName()))
+                        && (searchingCriteria.getLocation() == null || Objects.equals(event.getLocation(), searchingCriteria.getLocation()))
+                        && (searchingCriteria.getDate() == null || Objects.equals(event.getStartDate(), searchingCriteria.getDate()))).toList();
         if(events==loadEvents())
             return null;
         return events;

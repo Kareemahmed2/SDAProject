@@ -48,12 +48,6 @@
     "date" : [ 2024, 2, 2 ],
     "roomType" : "double"
   }, {
-    "type" : "HotelBooking",
-    "name" : "Hotel 1",
-    "totalCost" : 450.0,
-    "date" : [ 2024, 2, 2 ],
-    "roomType" : "double"
-  }, {
     "type" : "EventBooking",
     "name" : "Exhibition",
     "totalCost" : 50.0,
@@ -77,13 +71,63 @@
     "totalCost" : 750.0,
     "date" : [ 2024, 1, 2 ],
     "roomType" : "family"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 2",
+    "totalCost" : 750.0,
+    "date" : [ 2024, 1, 2 ],
+    "roomType" : "family"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 2",
+    "totalCost" : 750.0,
+    "date" : [ 2024, 1, 2 ],
+    "roomType" : "family"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 2",
+    "totalCost" : 750.0,
+    "date" : [ 2024, 1, 2 ],
+    "roomType" : "family"
+  }, {
+    "type" : "HotelBooking",
+    "name" : "Hotel 2",
+    "totalCost" : 750.0,
+    "date" : [ 2024, 1, 1 ],
+    "roomType" : "family"
   } ],
   "notifications" : [ {
     "type" : "SMSNotification",
     "message" : "Hi kareem, the booking request for Hotel 1 has been confirmed. Thank you for choosing us!"
   }, {
     "type" : "SMSNotification",
-    "message" : "Hi kareem, the booking request for Exhibition has been confirmed. Thank you for choosing us!"
+    "message" : "Hi kareem, the booking request for Hotel 2 has been confirmed. Thank you for choosing us!"
+  }, {
+    "type" : "SMSNotification",
+    "message" : "Hi kareem, the booking request for Hotel 2 has been confirmed. Thank you for choosing us!"
+  }, {
+    "type" : "RecommendationNotification",
+    "message" : "Hi kareem, we have a recommendation for you!",
+    "recommendation" : {
+      "username" : "kareem",
+      "events" : [ {
+        "name" : "Exhibition",
+        "description" : "Art event",
+        "location" : "Art Gallery",
+        "ticketPrice" : 50,
+        "startDate" : [ 2024, 2, 1 ],
+        "endDate" : [ 2024, 2, 2 ]
+      } ]
+    }
+  }, {
+    "type" : "SMSNotification",
+    "message" : "Hi kareem, the booking request for Hotel 2 has been confirmed. Thank you for choosing us!"
+  }, {
+    "type" : "SMSNotification",
+    "message" : "Hi kareem, the booking request for Hotel 2 has been confirmed. Thank you for choosing us!"
+  }, {
+    "type" : "EmailNotification",
+    "message" : "Subject: Your booking has been confirmed\n\nDear kareem,\nThank you for booking with us!\nYour booking details are as follows:\nBooking institution: Hotel 2\nWe look forward to hosting you.\nBest regards,\nbookly team"
   }, {
     "type" : "SMSNotification",
     "message" : "Hi kareem, the booking request for Hotel 2 has been confirmed. Thank you for choosing us!"
@@ -108,4 +152,32 @@
       "events" : [ ]
     }
   } ]
+}, {
+  "username" : "thomas",
+  "password" : "password1",
+  "email" : "kareem@gmail.com",
+  "age" : 30,
+  "bookings" : [ ],
+  "notifications" : [ ]
+}, {
+  "username" : "thomas",
+  "password" : "password1",
+  "email" : "kareem@gmail.com",
+  "age" : 30,
+  "bookings" : [ ],
+  "notifications" : [ ]
+}, {
+  "username" : "thomas",
+  "password" : "password1",
+  "email" : "kareem@gmail.com",
+  "age" : 30,
+  "bookings" : [ ],
+  "notifications" : [ ]
+}, {
+  "username" : "seif",
+  "password" : "password1",
+  "email" : "kareem@gmail.com",
+  "age" : 30,
+  "bookings" : [ ],
+  "notifications" : [ ]
 } ]

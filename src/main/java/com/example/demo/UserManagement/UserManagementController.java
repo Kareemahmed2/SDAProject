@@ -23,6 +23,7 @@ public class UserManagementController {
     }
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
+        if(userService.getUser(user.getUsername()) != null) return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists.");
         userService.addUser(user);
         return ResponseEntity.ok("User registered successfully.");
     }

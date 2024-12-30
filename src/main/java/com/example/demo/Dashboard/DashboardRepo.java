@@ -9,12 +9,8 @@ import java.util.List;
 @Service
 public class DashboardRepo implements DashboardRepository {
     @Override
-    public List<String> getNotifications(String username) {
-        List<String> notifications = new java.util.ArrayList<>();
-        for (Notification notification : DataStorage.getUserByUsername(username).getNotifications()) {
-            notifications.add(notification.getMessage());
-        }
-        return notifications;
+    public List<Notification> getNotifications(String username) {
+        return DataStorage.getUserByUsername(username).getNotifications();
     }
 
     @Override

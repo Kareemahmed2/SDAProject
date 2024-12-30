@@ -1,6 +1,7 @@
 package com.example.demo.Dashboard;
 
 import com.example.demo.Booking.Booking;
+import com.example.demo.NotificationHandler.Notification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class DashboardService {
     public List<Booking> printBooking(String username) {
         return dashboardRepository.getBookings(username);
     }
-    public List<String> printNotifications(String username) {
+    public List<Notification> printNotifications(String username) {
         return dashboardRepository.getNotifications(username);
     }
 }
